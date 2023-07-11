@@ -311,8 +311,6 @@
   />
   <span>Welcome</span>
   <br/>
-  <app-home></app-home>
-  <br/>
   <app-about></app-about>
     <div class="spacer"></div>
     <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
@@ -331,6 +329,7 @@
 
 <div class="content" role="main">
 
+  <app-home [pageName] = "title"></app-home>
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
