@@ -1,10 +1,28 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit } from '@angular/core';
+
+declare var $:any;
 
 @Directive({
   selector: '[appExample]'
 })
-export class ExampleDirective {
+export class ExampleDirective implements OnInit{
 
-  constructor() { }
+  constructor(private element:ElementRef) { 
+  }
 
+  ngOnInit(): void{
+    this.element.nativeElement.style.backgroundColor = this.color;
+    $(this.element.nativeElement).fadeOut(2000).fadeIn();
+
+  }
+
+  @Input() color:string = "";
+
+  @HostListener("click")
+  onClick(){
+    alert("Test");
+  }
+
+  @HostBinding("style.color")
+  writingColor:string= "blue"
 }
