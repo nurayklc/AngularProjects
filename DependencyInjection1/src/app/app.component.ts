@@ -4,9 +4,7 @@ import { productServiceToken } from './injection-token';
 
 @Component({
   selector: 'app-root',
-  template:`
-  
-  `
+  template: ``,
 })
 export class AppComponent {
   title = 'DependencyInjection1';
@@ -22,7 +20,14 @@ export class AppComponent {
   // }
 
   // Injection Token Kullanımı
-  constructor(@Inject(productServiceToken) private productService: ProductService) {
+  constructor(
+    @Inject(productServiceToken) private productService: ProductService,
+    @Inject('example') value: string,
+    @Inject('example') func: any,
+    @Inject('productService') private productService2: ProductService
+  ) {
     console.log(productService.getProducts());
+    console.log(productService2.getProducts());
+    console.log(func());
   }
 }

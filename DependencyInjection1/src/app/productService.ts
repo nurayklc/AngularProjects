@@ -8,7 +8,7 @@ import { LoggerService } from "./LoggerService";
 
 @Injectable( )
 export class ProductService {
-  constructor(private loggerService:LoggerService){}
+  constructor(){}
   getProducts(): Product[] {
     return [
       { name: 'Keyboard', quantity: 20 },
